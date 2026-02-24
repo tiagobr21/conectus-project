@@ -1,10 +1,10 @@
 # Passos para rodar a aplicação
 
-# clonar repositório
+# Clonar repositório
 
 - git clone git@github.com:tiagobr21/conectus-project.git
 
-# entrar na pasta do projeto
+# Entrar na pasta do projeto
 
 - cd conectus-project
 
