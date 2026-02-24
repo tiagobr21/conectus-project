@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { generateUsers } from "../../utils/generateUsers";
 
 export function UsersPage() {
   const navigate = useNavigate();
@@ -14,15 +15,20 @@ export function UsersPage() {
      
   // Carregar usuários do localStorage quando o componente montar
   
-      useEffect(() => {
-        const storedUsers = localStorage.getItem("users");
+  useEffect(() => {
+    const storedUsers = localStorage.getItem("users");
         if (storedUsers) {
           setUsers(JSON.parse(storedUsers));
         }
-      }, []);
+   }, []);
+  
+  useEffect(() => {
+    const fakeUsers = generateUsers(15);
+    setUsers(fakeUsers);
+  }, []);
         
 
-  const usersPerPage = 2;
+  const usersPerPage = 5;
 
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(search.toLowerCase())
